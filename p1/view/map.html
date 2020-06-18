@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <title>Babylon Template</title>
+
+     <style>
+        html, body {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+    
+		#mappa {
+		    width: 200px;
+            height: 350px;
+		   border: 1px solid black;
+		   border-radius: 5px;   
+		}
+    </style>
+
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+    <script src="https://code.jquery.com/pep/0.4.1/pep.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+   </head>
+
+   <body>
+
+    <canvas id="renderCanvas" touch-action="none"></canvas> 
+	<div id="mappa"></div>
+	<!-- touch-action="none" for best results from PEP -->
+
+    <script>
+	var tx=true;
+	function TrasferisciArray(Arraydatrasformare){
+		var mp_swap=new Array();
+		for (var i=0; i<13; i++){
+		     mp_swap[i]=Arraydatrasformare[i];
+	    }
+		return mp_swap;
+    }
+	
+	function VisualizzaMappa(mp){
+			$("#mappa").text('');
+			for (var i=0; i<13; i++){
+			  for (var j=0; j<17; j++) {
+			       if (mp[i][j]=='0') mp[i][j]='_';
+				} 
+				$("#mappa").append(mp[i]+'\n');//(map [1][1]);
+			}
+	}
+	
+	function rd(){
+			$.get("http://localhost:3000/main", function(data, status){
+			  console.log("load"+ status);
+			  map=data;
+			  
+			  VisualizzaMappa(map);
+			}).fail(function() {
+				alert( "Network Error" );
+			});
+	}
+	
+	
+	var start;
+	
+	 $(document).ready(function(){
+	
+	
+	   if (tx==true) start=setInterval('rd()', 500);	
+		
+	   document.onkeydown = function(e) {
+	   
+       switch (e.keyCode) {
+	   case 79:
+			$.ajax({
+			   url: 'http://localhost:3000/main',
+			   type: 'POST',
+			   data:{key:'open', x: 1},
+			   success: function (data){
+				   console.log("open door");
+				   map=data;
+				}
+			});
+     	    break;
+	    case 103:
+			$.ajax({
+			   url: 'http://localhost:3000/main',
+			   type: 'POST',
+			   data:{key:'rleft', x: 1},
+			   success: function (data){
+				   console.log("rotate left");
+				   map=data;
+				}
+			});
+     	    break;
+		case 105:
+		    $.ajax({
+			   url: 'http://localhost:3000/main',
+			   type: 'POST',
+			   data:{key:'rright', x: 1},
+			   success: function (data){
+				   console.log("rotate right");
+				   map=data;
+				}
+			});
+	        break;
+        case 37:
+           
+			$.ajax({
+			   url: 'http://localhost:3000/main',
+			   type: 'POST',
+			   data:{key:'left', x: 1},
+			   success: function (data){
+				console.log("left");
+				map=data;
+				//VisualizzaMappa(map);
+			  }
+			});
+            break;
+        case 38:
+           $.ajax({
+			   url: 'http://localhost:3000/main',
+			   type: 'POST',
+			   data:{key:'up', y: 1},
+			   success: function (data){
+				console.log("up");
+				map=data;
+				//VisualizzaMappa(map);
+			  }
+			});
+			
+            break;
+        case 39:
+         	 $.ajax({
+			   url: 'http://localhost:3000/main',
+			   type: 'POST',
+			   data:{key:'right', x: 1},
+			   success: function (data){
+				console.log("left");
+				map=data;
+				//VisualizzaMappa(map);
+			  }
+			});
+            break;
+        case 40:
+              $.ajax({
+			   url: 'http://localhost:3000/main',
+			   type: 'POST',
+			   data:{key:'down', y: 1},
+			   success: function (data){
+				console.log("down");
+				map=data;
+				//VisualizzaMappa(map);
+			  }
+			});
+            break;
+		 case 192:
+		    if (tx==true) {
+			    tx=false;
+				clearInterval(start);
+			}
+			else {
+			     tx=true;
+				 start=setInterval('rd()', 300);	
+			}
+		 break;
+		}
+	  };
+		
+	});
+	
+	</script>
+	
+
+</html>

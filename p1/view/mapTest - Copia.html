@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <title>Babylon Template</title>
+	  <script src="https://cdn.babylonjs.com/babylon.js"></script>
+      <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+      <!-- <script src="https://code.jquery.com/pep/0.4.1/pep.js"></script>   -->
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	  
+	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	 <link href="css/Star.css" rel="stylesheet" type="text/css"> 
+
+     <style>
+        html, body {
+		  
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #renderCanvas {
+		 /*   float: Left;*/
+            width: 550px;
+			height: 550px;
+            /*height: 50%;*/
+            touch-action: none;
+        }
+		
+		#mappa {
+		  /* float: Left;*/
+		    width: 300px;
+            height: 250px;
+		   border: 1px solid black;
+		   border-radius: 5px;   
+		}
+    </style>
+
+    
+
+   </head>
+
+   <body>
+    
+	
+   <!-- <div id="total"> -->
+	<div id='pixs'></div>
+    <div id='pix2'></div>
+    <div id='pix3'></div>
+	
+	<div class="container">
+		  <div class="row">
+		  <div class="col-sm .col-4">  </div>
+		  <div class="col-sm .col-4">
+		     <div id="title" ></div>
+		  </div>
+		  <div class="col-sm .col-4">  </div>
+		  </div>
+		  <div class="row">
+		  
+		  				<!-- Modal -->
+ <div class="modal" id="PlayerModal"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false" >  
+  <div class="modal-dialog"  role="document" >
+    <div class="modal-content" style="width: 530px" >
+		
+   <!--   <div class="modal-header" id="Modaltitle">
+        <h5 class="modal-title" id="ModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>-->
+      <div class="modal-body" id="modalback">
+	   <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="text-align: right;  font-size: 35px; margin-right: 20px; background-color: #a88732">
+          <span aria-hidden="true">&times;</span>
+        </button>
+	 
+	   <div style="margin-top:100px;"></div>
+	   <div class="row">
+		   <div class="col-sm .col-3" >
+			<div id="ItemContainer" >
+				<div  id="bag1" style=" float:left;  width: 66px; height: 50px; position: static; "></div>
+				<div  id="bag2" style=" float:left;  width: 66px; height: 50px; position: static; padding-right: 0px;"></div>
+				
+				<div  id="bag3" style=" float:left;  width: 66px; height: 50px; position: static; "></div>
+				<div  id="bag4" style=" float:left;  width: 66px; height: 50px; position: static; padding-right: 0px;"></div>
+				
+				<div  id="bag5" style=" float:left;  width: 66px; height: 50px; position: static; "></div>
+				<div  id="bag6" style=" float:left;  width: 66px; height: 50px; position: static; padding-right: 0px;"></div>
+				
+				<div  id="bag7" style=" float:left;  width: 66px; height: 50px; position: static; "></div>
+				<div  id="bag8" style=" float:left;  width: 66px; height: 50px; position: static; padding-right: 0px;"></div>
+				
+				<div  id="bag9" style=" float:left;  width: 66px; height: 50px; position: static; "></div>
+				<div  id="bag10" style=" float:left;  width: 66px; height: 50px; position: static; padding-right: 0px;"></div>
+				
+				<div  id="bag11" style=" float:left;  width: 66px; height: 50px; position: static; "></div>
+				<div  id="bag12" style=" float:left;  width: 66px; height: 50px; position: static; padding-right: 0px;"></div>
+				
+				<div  id="bag13" style=" float:left;  width: 66px; height: 50px; position: static; "></div>
+				<div  id="bag14" style=" float:left;  width: 66px; height: 50px; position: static; padding-right: 0px;"></div>
+				
+				<div  id="bag15" style=" float:left;  width: 66px; height: 50px; position: static; "></div>
+				<div  id="bag16" style=" float:left;  width: 66px; height: 50px; position: static; padding-right: 0px;"></div>
+				
+				<div  id="bag17" style=" float:left;  width: 66px; height: 50px; position: static; "></div>
+				<div  id="bag18" style=" float:left;  width: 66px; height: 50px; position: static; padding-right: 0px;"></div>
+				
+				<div  id="bag19" style=" float:left;  width: 66px; height: 50px; position: static; "></div>
+				<div  id="bag20" style=" float:left;  width: 66px; height: 50px; position: static; padding-right: 0px;"></div>
+				<!-- <div  style=" float:left;  width: 66px; height: 50px; position: static; ">3</div>
+				<div  style=" float:left;  width: 66px; height: 50px; position: static;">4</div>  -->
+			</div>
+		   </div>
+		   <div class="col-sm .col-3" style=" padding-right: 0px; padding-left: 0px; margin-right:0px" > 
+		      <div id="EquipLeft"  style=" padding-right: 0px; padding-left: 0px; margin-right:0px float:right" >
+		         <div  id="head" style="  width: 66px; height: 100px; padding-right: 0px; text-align: right; margin: 0px;"></div>
+				 <div  id="body" style="  width: 66px; height: 100px; padding-right: 0px; text-align: right; margin: 0px; "></div>
+				 <div  id="lefthand" style="  width: 66px; height: 100px; padding-right: 0px; text-align: right; margin: 0px; "></div>
+				 <div  id="legs" style="  width: 66px; height: 100px; padding-right: 0px; text-align: right; margin: 0px; "></div>
+				 <div  id="feet" style="  width: 66px; height: 100px; padding-right: 0px; text-align: right; margin: 0px;"></div> 
+			  </div>
+			</div>
+		   <div class="col-sm .col-3" style=" padding-right: 0px; padding-left: 0px;" >
+              <div id="PlayerBody" style=" padding-right: 0px; padding-left: 0px;" ></div>
+		   </div>
+		   <div class="col-sm .col-3" style=" padding-left: 0px; "> 
+		      <div id="EquipRight" style=" padding-left: 0px; ">
+			     <div  style="  width: 66px; height: 100px; padding-right: 0px; text-align: right; margin: 0px;"></div>
+				 <div  id="neck" style="  width: 66px; height: 100px; padding-right: 0px; text-align: right; margin: 0px; "></div>
+				 <!-- <div  id="righthand" style="  width: 66px; height: 100px; padding-right: 0px; text-align: right; margin: 0px; "></div> -->
+				 <button id="righthand" type="button" class="btn btn-outline-primary">Primary</button>
+				 <div  id="hands" style="  width: 66px; height: 100px; padding-right: 0px; text-align: right; margin: 0px; "></div>
+				 <div  style="  width: 66px; height: 100px; padding-right: 0px; text-align: right; margin: 0px;"></div> 
+			  </div>
+			</div>
+	   </div>
+	   
+	   <div class="row" style="margin-top: 60px; font: 25px Times, serif; text-align: center;">
+	        <div class="col-sm .col-3" style="background-color:trasparent;">
+			   <div id="use" > Use
+			   </div>
+			</div>
+			<div class="col-sm .col-3" >
+			   <div id="equip" > Equip
+			   </div>
+			</div>
+			<div class="col-sm .col-3" >
+			   <div id="unequip" > UnEquip
+			   </div>
+			</div>
+			<div class="col-sm .col-3" >
+			  <div id="discard" > Discard
+			  </div>
+			</div>
+	   </div>
+	   
+      </div>
+	   
+     <!--  <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>  -->
+    </div>
+  </div>
+</div> 
+		  
+		  
+			<div class="col-sm .col-4">  </div>
+			<div class="col-sm .col-4">  
+				<canvas id="renderCanvas" style="border: 8px inset grey; border-radius: 2px;" touch-action="none"></canvas>
+				<div id="console">
+					<div style=" width: 550px; position: static ">
+					  <div id="directionPad" style="float:left; ">
+					    
+						<div>
+					    <div id="rleft" style=" float:left;  width: 66px height: 50px; position: static"></div>
+						<div id="up" style=" float:left;  width: 66px; height: 50px; position: static"></div>
+						<div id="rright" style=" float:left;  width: 66px; height: 50px; position: static"></div>
+						</div>
+						<div>
+					    <div id="left" style=" float:left;  width: 66px; height: 50px; position: static"></div>
+						<div id="down" style=" float:left;  width: 66px; height: 50px; position: static"></div>
+						<div id="right" style=" float:left; width: 66px; height: 50px; position: static"></div>
+						</div>
+						
+						
+					  </div>
+					  <div id="PlayerData" style="float:left; ">
+					  </div>
+					  <div id="direzione"    style="float:right; " ></div>
+					
+					  
+					</div>
+				</div>
+				
+
+				
+			 <div id="mappa" style=" font-family: Currier;"></div>
+			
+			
+			</div>
+			<div class="col-sm .col-4"></div>
+		  </div>
+	 </div> 
+			
+		
+		
+	<!-- </div> -->
+	
+	<!-- touch-action="none" for best results from PEP -->
+
+    <script>
+	var carica=true;
+    var canvas = document.getElementById("renderCanvas"); // Get the canvas element 
+	//0, 1, -1)
+	var xp=0;
+	var yp=1;
+	var zp=-1;
+
+    var engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
+	var texture="http://localhost:3000/main/wall2.png";
+	var textureDoor="http://localhost:3000/main/doorlDavid2.png";
+	var textureCreatureZombie="http://localhost:3000/main/zombie.png";
+	var textureCreatureOrk="http://localhost:3000/main/ork.png";
+	var textureCreatureCube="http://localhost:3000/main/cube.png";
+	var textureBackGround="http://localhost:3000/main/background.jpg";
+	
+	var texturePadRL="http://localhost:3000/main/directionRL.png";
+	var texturePadU="http://localhost:3000/main/directionU.png";
+	var texturePadRR="http://localhost:3000/main/directionRR.png";
+	var texturePadL="http://localhost:3000/main/directionL.png";
+	var texturePadD="http://localhost:3000/main/directionD.png";
+	var texturePadR="http://localhost:3000/main/directionR.png";
+	
+	
+	var textureCompassN="http://localhost:3000/main/CompassN.png";
+	var textureCompassS="http://localhost:3000/main/CompassS.png";
+	var textureCompassE="http://localhost:3000/main/CompassE.png";
+	var textureCompassW="http://localhost:3000/main/CompassW.png";
+	var textureCompassW="http://localhost:3000/main/CompassW.png";
+	var textureLogo="http://localhost:3000/main/malleusdei.png";
+	
+	var textureSword="http://localhost:3000/main/sword.png";
+	var textureDagger="http://localhost:3000/main/dagger.png";
+	
+	var texturePlayerIcon="http://localhost:3000/main/character.png";
+	
+	
+	var textureSilouette="http://localhost:3000/main/silouette.png";
+	var textureBackPlayer="http://localhost:3000/main/backPlayerP2.png";
+	
+	var textureBagItem="http://localhost:3000/main/bag.png";
+	var textureBagEquip1="http://localhost:3000/main/BagEquip1.png";
+	var textureBagEquip2="http://localhost:3000/main/BagEquip2.png";
+	
+	var textureModalTitle="http://localhost:3000/main/titlemodal.png";
+	
+	var allItems=new Array();
+	var Bag=new Array();
+	var Player;
+	
+	/////////////////////////////////////////////////////////////////
+	
+
+    document.body.style.background = "url('"+textureBackGround+"') no-repeat top";
+
+	//var mapWorld;
+	var tx=true;
+	var  mapWorld;
+	function TrasferisciArray(Arraydatrasformare){
+		var mp_swap=new Array();
+		for (var i=0; i<13; i++){
+		     mp_swap[i]=Arraydatrasformare[i];
+	    }
+		return mp_swap;
+    }
+	
+	function VisualizzaMappa(mp){
+			$("#mappa").text('');
+			for (var i=0; i<13; i++){
+			  for (var j=0; j<17; j++) {
+			       if (mp[i][j]=='0') mp[i][j]='_';
+				} 
+				$("#mappa").append(mp[i]+'\n');//(map [1][1]);
+			}
+	}
+	
+	function rd(){
+			$.get("http://localhost:3000/main", function(data, status){
+			  console.log("load"+ status);
+			  map=data;
+			  mapWorld=map;
+			  
+			  VisualizzaMappa(map);
+			  
+			}).fail(function() {
+				alert( "Network Error" );
+			});
+	}
+	
+	//////////////////////////////////////////////////////////
+	function PlayerMove(){
+	         var pl;
+		     $.get("http://localhost:3000/main/player", function(data, status){
+				  console.log("load"+ status+ "player"+ data);
+			      pl = data
+				 }).fail(function() {
+					alert( "Network Error" );
+			 });
+		    return pl;
+			//camera.position = new BABYLON.Vector3(xp, yp, zp);
+		 
+		 
+	}
+	
+	var selectedBagOnPad;
+	var selectedBag;
+	var selectedImageInBag;
+	var itemBagToEquipIsSelected=false;
+	//////////////////////////////////////////////////////////
+	
+	function ResteModalofPlayer(){
+	
+	   for (var i=0; i<20; i++) {
+	        $("#bag"+(i+1)).css("background-color","transparent");
+			$("#bag"+(i+1)).find("#image").remove();
+	   }
+	  $("#lefthand").css("background-color","transparent");
+	  $("#legs").css("background-color","transparent");	
+	  $("#feet").css("background-color","transparent");	
+	  $("#neck").css("background-color","transparent");	
+	  $("#righthand").css("background-color","transparent");	
+	  $("#hands").css("background-color","transparent");	
+	  $("#head").css("background-color","transparent");	
+	  $("#body").css("background-color","transparent");	
+	  $("#equip").css({ 'color':'black' ,'font-size': '100%' });
+	  $("#unequip").css({ 'color':'black' ,'font-size': '100%' });
+	  $("#discard").css({ 'color':'black' ,'font-size': '100%' });
+	  $("#use").css({ 'color':'black' ,'font-size': '100%' });
+	  $("#use").hide();
+	  $("#equip").hide();
+	  $("#unequip").hide();
+	  $("#discard").hide();
+	  itemBagToEquipIsSelected=false;
+	  $("#righthand").on("click");
+	}
+	
+	function ResteModalofPlayerAfterEquip(){
+	
+	  $("#lefthand").css("background-color","transparent");
+	  $("#legs").css("background-color","transparent");	
+	  $("#feet").css("background-color","transparent");	
+	  $("#neck").css("background-color","transparent");	
+	  $("#righthand").css("background-color","transparent");	
+	  $("#hands").css("background-color","transparent");	
+	  $("#head").css("background-color","transparent");	
+	  $("#body").css("background-color","transparent");	
+	  $("#equip").css({ 'color':'black' ,'font-size': '100%' });
+	  $("#unequip").css({ 'color':'black' ,'font-size': '100%' });
+	  $("#discard").css({ 'color':'black' ,'font-size': '100%' });
+	  $("#use").css({ 'color':'black' ,'font-size': '100%' });
+	  $("#use").hide();
+	  $("#equip").hide();
+	  $("#unequip").hide();
+	  $("#discard").hide();
+	  itemBagToEquipIsSelected=false;
+	}
+	
+	
+	//////////////////////////////////////////////////////////
+	
+	function CheckBagEquip(ris){
+	           
+	           var risDiv=ris;
+			   ris=ris.slice(-1);
+			   for (var i=0; i<Bag.length; i++){
+					if (i==(Number(ris)-1)){
+					    $("#"+risDiv).css("background-color","red");
+						//$('#selector').css('cursor', 'url("/path/your_image.png"), auto');
+					    selectedBag=Bag[i];
+						if (Bag[i].equip=="hands" || Bag[i].equip=="neck" || Bag[i].equip=="body" || Bag[i].equip=="legs" || Bag[i].equip=="feet" || Bag[i].equip=="head" || Bag[i].equip=="hand") {
+						   //  itemBagToEquipIsSelected=true;
+				             $("#equip").show();
+							 //$("#unequip").show();
+			                 $("#discard").show();
+							 $("#equip").css({ 'color': 'red', 'font-size': '110%' });
+							// $("#unequip").css({ 'color': 'red', 'font-size': '110%' });
+							 $("#discard").css({ 'color': 'red', 'font-size': '110%' });
+							 if (Bag[i].equip=="hands")  $("#hands").css("background-color","red");
+							 if (Bag[i].equip=="hand")  {$("#righthand").css("background-color","red"); $("#lefthand").css("background-color","red");  }
+							 if (Bag[i].equip=="head")  $("#head").css("background-color","red");
+							 if (Bag[i].equip=="body")  $("#body").css("background-color","red");
+							 if (Bag[i].equip=="feet")  $("#feet").css("background-color","red");
+							 if (Bag[i].equip=="neck")  $("#neck").css("background-color","red");
+							 if (Bag[i].equip=="legs")  $("#legs").css("background-color","red");
+						}
+						
+						if (Bag[i].equip=="") {
+						   $("#use").show();	  
+						   $("#use").css({ 'color': 'red', 'font-size': '110%' });						   
+						}
+						break;
+					}
+			   }
+	}
+	
+	//////////////////////////////////////////////////////////	  
+		  
+		  
+
+	
+	// function GenerateWorld(){
+	
+	    var canvas = document.getElementById("renderCanvas"); // Get the canvas element
+        var engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
+
+        /******* Add the create scene function ******/
+        var createScene = function () {
+		$("#title").append('<img  src="'+textureLogo+'" alt="image"> '); 
+		
+
+        $("#rleft").append('<img  src="'+texturePadRL+'" alt="image"> '); 
+		$("#up").append('<img  src="'+texturePadU+'" alt="image"> '); 
+        $("#rright").append('<img  src="'+texturePadRR+'" alt="image"> '); 
+		$("#right").append('<img  src="'+texturePadR+'" alt="image"> '); 
+		$("#down").append('<img  src="'+texturePadD+'" alt="image"> '); 
+		$("#left").append('<img  src="'+texturePadL+'" alt="image"> '); 	
+		$("#PlayerData").append('<img  src="'+texturePlayerIcon+'" alt="image"> '); 	
+        $("#ItemContainer").css('background-image', "url('"+textureBagItem+"')");
+		$("#ItemContainer").css('height', "500px");
+		$("#ItemContainer").css('width', "132px");
+		
+		$("#PlayerBody").css('background-image', "url('"+textureSilouette+"')");
+		$("#PlayerBody").css('height', "500px");
+		$("#PlayerBody").css('width', "214px");	
+		$("#modalback").css('background-image', "url('"+textureBackPlayer+"')");
+		$("#modalback").css('height', "750px");
+		$("#modalback").css('width', "530px");
+		$("#modalback").css('background-color', "black");
+		
+	
+	    $("#EquipLeft").css('background-image', "url('"+textureBagEquip1+"')");
+		$("#EquipLeft").css('height', "500px");
+		$("#EquipLeft").css('width', "66px");
+		$("#EquipLeft").css('margin-right', "0px");
+	
+		$("#EquipRight").css('background-image', "url('"+textureBagEquip2+"')");
+		$("#EquipRight").css('height', "500px");
+		$("#EquipRight").css('width', "66px");
+		$("#EquipRight").css('margin-right', "0px");
+		
+           // Create the scene space
+         var scene = new BABYLON.Scene(engine);
+
+            // Add a camera to the scene and attach it to the canvas
+             
+		var camera = new BABYLON.FreeCamera("FreeCamera", new BABYLON.Vector3(0, 0, -1), scene);
+		camera.setTarget(BABYLON.Vector3.Zero());
+		scene.activeCamera.attachControl(canvas, false );
+			
+		camera.speed=1;
+	
+		camera.keysUp = [];camera.keysDown = [];
+		camera.detachControl(canvas);
+			
+	        // Add lights to the scene
+        var light0 = new BABYLON.HemisphericLight("light0", new BABYLON.Vector3(1, 1, 0), scene);
+		var light1 = new BABYLON.DirectionalLight("light1", new BABYLON.Vector3(1, 1, 0),scene);
+           // var light2 = new BABYLON.PointLight("Omni", new BABYLON.Vector3(xp, yp, zp), scene);
+		 var light2 = new BABYLON.PointLight("light2", new BABYLON.Vector3(xp, yp, zp), scene);
+			
+		 var mat = new BABYLON.StandardMaterial("wall", scene);
+		 mat.diffuseTexture = new BABYLON.Texture(texture, scene);
+		 mat.diffuseTexture.hasAlpha = true;
+		 mat.backFaceCulling = true;
+	
+            // Add and manipulate meshes in the scene
+		light0.setEnabled(true);
+		light0.intensity = 0.5;
+		light1.setEnabled(true);
+		light1.intensity = 0.4;
+			//light1.parent = box;
+		light2.intensity = 1.0;
+		light2.range = 6;
+		light2.parent=camera;
+          //  var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter:2}, scene);
+		var extraGround = BABYLON.Mesh.CreateGround("extraGround", 100, 100, 1, scene, false);
+		var extraGroundMaterial = new BABYLON.StandardMaterial("extraGround", scene);
+		extraGroundMaterial.diffuseTexture = new BABYLON.Texture(texture, scene);
+		extraGroundMaterial.diffuseTexture.uScale = 40;
+		extraGroundMaterial.diffuseTexture.vScale = 40;
+		extraGround.material = extraGroundMaterial;
+			
+		
+			 
+	
+		var keyAction="";
+		
+		
+		$("#bag1").click(function() {
+		      selectedBagOnPad=$("#bag1").attr('id');
+              CheckBagEquip(selectedBagOnPad)
+   	    });
+		$("#bag2").click(function() {
+		      selectedBagOnPad=$("#bag2").attr('id');
+              CheckBagEquip(selectedBagOnPad)
+   	    });
+		$("#bag3").click(function() {
+		      selectedBagOnPad=$("#bag3").attr('id');
+              CheckBagEquip(selectedBagOnPad)
+   	    });
+		$("#bag4").click(function() {
+		      selectedBagOnPad=$("#bag4").attr('id');
+              CheckBagEquip(selectedBagOnPad)
+   	    });
+		$("#bag5").click(function() {
+		      selectedBagOnPad=$("#bag5").attr('id');
+              CheckBagEquip(selectedBagOnPad)
+   	    });
+		$("#bag6").click(function() {
+		      selectedBagOnPad=$("#bag6").attr('id');
+              CheckBagEquip(selectedBagOnPad)
+   	    });
+		$("#bag7").click(function() {
+		      selectedBagOnPad=$("#bag7").attr('id');
+              CheckBagEquip(selectedBagOnPad)
+   	    });
+		$("#bag8").click(function() {
+		      selectedBagOnPad=$("#bag8").attr('id');
+              CheckBagEquip(selectedBagOnPad)
+   	    });
+		$("#bag9").click(function() {
+		      selectedBagOnPad=$("#bag9").attr('id');
+              CheckBagEquip(selectedBagOnPad)
+   	    });
+		$("#bag10").click(function() {
+		      selectedBagOnPad=$("#bag10").attr('id');
+              CheckBagEquip(selectedBagOnPad)
+   	    });
+		$("#bag11").click(function() {
+		      selectedBagOnPad=$("#bag11").attr('id');
+              CheckBagEquip(selectedBagOnPad)
+   	    });
+		$("#bag12").click(function() {
+		      selectedBagOnPad=$("#bag12").attr('id');
+              CheckBagEquip(selectedBagOnPad)
+   	    });
+		$("#bag13").click(function() {
+		      selectedBagOnPad=$("#bag13").attr('id');
+              CheckBagEquip(selectedBagOnPad)
+   	    });
+		$("#bag14").click(function() {
+		      selectedBagOnPad=$("#bag14").attr('id');
+              CheckBagEquip(selectedBagOnPad)
+   	    });
+		$("#bag15").click(function() {
+		      selectedBagOnPad=$("#bag15").attr('id');
+              CheckBagEquip(selectedBagOnPad)
+   	    });
+		$("#bag16").click(function() {
+		      selectedBagOnPad=$("#bag16").attr('id');
+              CheckBagEquip(selectedBagOnPad)
+   	    });
+		$("#bag17").click(function() {
+		      selectedBagOnPad=$("#bag17").attr('id');
+              CheckBagEquip(selectedBagOnPad)
+   	    });
+		$("#bag18").click(function() {
+		      selectedBagOnPad=$("#bag18").attr('id');
+              CheckBagEquip(selectedBagOnPad)
+   	    });
+		$("#bag19").click(function() {
+		      selectedBagOnPad=$("#bag19").attr('id');
+              CheckBagEquip(selectedBagOnPad)
+   	    });
+		$("#bag20").click(function() {
+		      selectedBagOnPad=$("#bag20").attr('id');
+              CheckBagEquip(selectedBagOnPad)
+   	    }); 
+		
+		
+		$("#righthand").click(function() {
+		    alert("mano destra!");	
+		    if (itemBagToEquipIsSelected==false){
+		        if (Player.righthand!="") {
+				    $("#righthand").off("click");
+					$("#righthand").css("background-color","red");
+					$("#unequip").show();
+					$("#discard").show();
+					$("#unequip").css({ 'color': 'red', 'font-size': '110%' });
+					$("#discard").css({ 'color': 'red', 'font-size': '110%' });
+					$("#unequip").click(function() {
+					   //$("#unequip").css({ 'font-size': '120%' });
+					   SelectedBag=Player.righthand;
+					   Player.righthand="";//SelectedBag;
+					   $.ajax({
+						  url: 'http://localhost:3000/main/player',
+						  type: 'POST',
+						  contentType:"application/json; charset=utf-8",
+						  dataType:"json",
+						  data:JSON.stringify({player:Player}),
+						 //  data:{player:Player},
+						   success: function (){
+							   console.log("player set form r hand");
+							   $.ajax({
+									url: 'http://localhost:3000/main/bag',
+									type: 'POST',
+									contentType:"application/json; charset=utf-8",
+									dataType:"json",
+									data:JSON.stringify({bag: SelectedBag}),
+									success: function (){
+										   console.log("item insert");
+										   $("#righthand").find("#image").remove();
+										   ResteModalofPlayer();
+										   Bag.push(SelectedBag);
+										   for (var i=0; i<Bag.length; i++){
+												var whatDiv="#bag"+(i+1);
+												var setDivImage="image";
+												$(whatDiv).html('<img  id="'+setDivImage+'" src="'+Bag[i].pathimage+'" alt="image" style=" width: 90%;  height: 90%;" > ');
+											//	$("#righthand").on("click");
+											}
+									}
+								});
+						   }
+					   });   
+					});
+					
+				} else {
+				    if ( selectedBag.equip=="hand"){
+						  $("#righthand").html('<img id="image" src="'+selectedBag.pathimage+'" alt="image" style=" width: 92%;  height: 92%;" > '); // copio immagine da bag preso dalla GET
+						  $("#"+selectedBagOnPad).find("#image").remove(); // rimuovi immagine dalla lista a video
+						  $("#"+selectedBagOnPad).css("background-color","transparent");
+						  $("#lefthand").css("background-color","transparent");
+						  $("#righthand").css("background-color","transparent");
+						  ResteModalofPlayer(); 
+						
+						//  ResteModalofPlayerAfterEquip();
+						  
+						  Player.righthand=selectedBag;  //inserisco in layer arma in righthand
+						  $.ajax({
+						  url: 'http://localhost:3000/main/player',
+						  type: 'POST',
+						  contentType:"application/json; charset=utf-8",
+						  dataType:"json",
+						  data:JSON.stringify({player:Player}),
+							success: function (){
+							   console.log("player set");
+								$.ajax({
+								url: 'http://localhost:3000/main/Bag/'+selectedBag.id,
+								type: 'DELETE',
+								success: function (){
+								   console.log("item deleted from bag");
+								   for (var i=0; i<Bag.length; i++){ 
+											if (selectedBag.id==Bag[i].id){
+												Bag.splice(i, 1);     
+												break;
+											 }
+									}
+								}
+							});
+						   }
+						  });
+				 }
+				 
+				}
+				
+			}
+			$("#righthand").on("click");
+   	    }); 
+		
+		$("#lefthand").click(function() {
+		   if (itemBagToEquipIsSelected==false){
+		        if (Player.lefthand!="") {
+				    $("#lefthand").prop("disabled", true);
+					$("#lefthand").css("background-color","red");
+					$("#unequip").show();
+					$("#discard").show();
+					$("#unequip").css({ 'color': 'red', 'font-size': '110%' });
+					$("#discard").css({ 'color': 'red', 'font-size': '110%' });
+					$("#unequip").click(function() {
+					   //$("#unequip").css({ 'font-size': '120%' });
+					   SelectedBag=Player.lefthand;
+					   Player.lefthand="";//SelectedBag;
+					   $.ajax({
+						  url: 'http://localhost:3000/main/player',
+						  type: 'POST',
+						  contentType:"application/json; charset=utf-8",
+						  dataType:"json",
+						  data:JSON.stringify({player:Player}),
+						 //  data:{player:Player},
+						   success: function (){
+							   console.log("player set from l hand");
+							   $.ajax({
+									url: 'http://localhost:3000/main/bag',
+									type: 'POST',
+									contentType:"application/json; charset=utf-8",
+									dataType:"json",
+									data:JSON.stringify({bag: SelectedBag}),
+									success: function (){
+										   console.log("item insert");
+										   $("#lefthand").find("#image").remove();
+										   ResteModalofPlayer();
+										   Bag.push(SelectedBag);
+										   for (var i=0; i<Bag.length; i++){
+												var whatDiv="#bag"+(i+1);
+												var setDivImage="image";
+												$(whatDiv).html('<img  id="'+setDivImage+'" src="'+Bag[i].pathimage+'" alt="image" style=" width: 90%;  height: 90%;" > ');
+												//$("#lefthand").prop("disabled", false);
+											}
+									}
+								});
+						   }
+					   });   
+					});
+					
+				}
+			  //$("#lefthand").prop("disabled", false);
+			}
+   	    }); 
+		
+		$("#head").click(function() {
+		   if (itemBagToEquipIsSelected==false){
+		   
+		        if (Player.head!="") {
+					$("#head").css("background-color","red");
+					$("#unequip").show();
+					$("#discard").show();
+					$("#unequip").css({ 'color': 'red', 'font-size': '110%' });
+					$("#discard").css({ 'color': 'red', 'font-size': '110%' });
+					$("#unequip").click(function() {
+					   //$("#unequip").css({ 'font-size': '120%' });
+					   SelectedBag=Player.head;
+					   Player.head="";//SelectedBag;
+					   $.ajax({
+						  url: 'http://localhost:3000/main/player',
+						  type: 'POST',
+						  contentType:"application/json; charset=utf-8",
+						  dataType:"json",
+						  data:JSON.stringify({player:Player}),
+						 //  data:{player:Player},
+						   success: function (){
+							   console.log("player set");
+							   $.ajax({
+									url: 'http://localhost:3000/main/bag',
+									type: 'POST',
+									contentType:"application/json; charset=utf-8",
+									dataType:"json",
+									data:JSON.stringify({bag: SelectedBag}),
+									success: function (){
+										   console.log("item insert");
+										   $("#head").find("#image").remove();
+										   ResteModalofPlayer();
+										   Bag.push(SelectedBag);
+										   for (var i=0; i<Bag.length; i++){
+												var whatDiv="#bag"+(i+1);
+												var setDivImage="image";
+												$(whatDiv).html('<img  id="'+setDivImage+'" src="'+Bag[i].pathimage+'" alt="image" style=" width: 90%;  height: 90%;" > ');
+											}
+									}
+								});
+						   }
+					   });   
+					});
+				}
+			}
+   	    }); 
+		
+		$("#rleft").click(function() {
+			   GiveInput("rleft");
+		   });
+		$("#up").click(function() {
+			   GiveInput("up");
+		   });
+		$("#rright").click(function() {
+			   GiveInput("rright");
+		   });
+		$("#left").click(function() {
+			   GiveInput("left");
+		   });
+		$("#down").click(function() {
+			   GiveInput("down");
+		   });
+		$("#right").click(function() {
+			   GiveInput("right");
+		   });
+		   
+		$("#PlayerData").click(function() {
+   	          
+				$.ajax({
+				   url: 'http://localhost:3000/main/bag',
+					   type: 'GET',
+					   
+					   success: function (data){ 
+					 
+					          
+							   Bag=data;
+							   ResteModalofPlayer();
+					           for (var i=0; i<data.length; i++){
+									var whatDiv="#bag"+(i+1);
+									var setDivImage="image";
+									$(whatDiv).html('<img  id="'+setDivImage+'" src="'+data[i].pathimage+'" alt="image" style=" width: 90%;  height: 90%;" > ');
+							   }
+							   console.log("bag loaded");
+							   $('#PlayerModal').modal('show');
+							   if (Player.lefthand!="") $("#lefthand").html('<img  id="image" src="'+Player.lefthand.pathimage+'" alt="image" style=" width: 92%;  height: 92%;" > ');
+							   if (Player.righthand!="") $("#righthand").html('<img  id="image" src="'+Player.righthand.pathimage+'" alt="image" style=" width: 92%;  height: 92%;" > ');
+							   if (Player.body!="") $("#body").html('<img  id="image" src="'+Player.body.pathimage+'" alt="image" style=" width: 92%;  height: 92%;" > ');
+							   if (Player.head!="") $("#head").html('<img  id="image" src="'+Player.head.pathimage+'" alt="image" style=" width: 92%;  height: 92%;" > ');
+							   if (Player.legs!="") $("#legs").html('<img  id="image" src="'+Player.legs.pathimage+'" alt="image" style=" width: 92%;  height: 92%;" > ');
+							   if (Player.feet!="") $("#feet").html('<img  id="image" src="'+Player.feet.pathimage+'" alt="image" style=" width: 92%;  height: 92%;" > ');
+							   if (Player.neck!="") $("#neck").html('<img  id="image" src="'+Player.neck.pathimage+'" alt="image" style=" width: 92%;  height: 92%;" > ');
+							   if (Player.hands!="") $("#hands").html('<img  id="image" src="'+Player.hands.pathimage+'" alt="image" style=" width: 92%;  height: 92%;" > ');
+				       }
+				});
+				
+		});
+		
+		$("#equip").click(function() {
+		     $("#equip").css({ 'font-size': '120%' });
+			
+				 $("#lefthand").click(function() {
+				   if (Player.lefthand=="" && selectedBag.equip=="hand"){
+					  $("#lefthand").html('<img id="image" src="'+selectedBag.pathimage+'" alt="image" style=" width: 92%;  height: 92%;" > '); // copio immagine da bag preso dalla GET
+					  $("#"+selectedBagOnPad).find("#image").remove(); // rimuovi immagine dalla lista a video
+					  $("#"+selectedBagOnPad).css("background-color","transparent");
+					  $("#lefthand").css("background-color","transparent");
+					  $("#righthand").css("background-color","transparent");
+					 // ResteModalofPlayerAfterEquip();
+					  ResteModalofPlayer();
+					  Player.lefthand=selectedBag;  //inserisco in layer arma in lefthand
+					  
+					  $.ajax({
+						  url: 'http://localhost:3000/main/player',
+						  type: 'POST',
+						  contentType:"application/json; charset=utf-8",
+						  dataType:"json",
+						  data:JSON.stringify({player:Player}),
+						 //  data:{player:Player},
+						   success: function (){
+							   console.log("player set");
+							   $.ajax({
+								url: 'http://localhost:3000/main/Bag/'+selectedBag.id,
+								type: 'DELETE',
+								success: function (){
+								   console.log("item deleted from bag");
+								   for (var i=0; i<Bag.length; i++){ 
+									if (selectedBag.id==Bag[i].id){
+										Bag.splice(i, 1);     
+										break;
+									 }
+								   }
+								}
+							  });
+						   }
+					 });
+					}  
+				})
+			
+			
+    	  /*    $("#righthand").click(function() {
+			  
+			   if (Player.righthand==""  && selectedBag.equip=="hand"){
+			      $("#righthand").html('<img id="image" src="'+selectedBag.pathimage+'" alt="image" style=" width: 92%;  height: 92%;" > '); // copio immagine da bag preso dalla GET
+				  $("#"+selectedBagOnPad).find("#image").remove(); // rimuovi immagine dalla lista a video
+				  $("#"+selectedBagOnPad).css("background-color","transparent");
+				  $("#lefthand").css("background-color","transparent");
+				  $("#righthand").css("background-color","transparent");
+				  ResteModalofPlayer(); 
+				
+				//  ResteModalofPlayerAfterEquip();
+				  
+				  Player.righthand=selectedBag;  //inserisco in layer arma in righthand
+				  $.ajax({
+				  url: 'http://localhost:3000/main/player',
+				  type: 'POST',
+				  contentType:"application/json; charset=utf-8",
+				  dataType:"json",
+				  data:JSON.stringify({player:Player}),
+				    success: function (){
+					   console.log("player set");
+					    $.ajax({
+						url: 'http://localhost:3000/main/Bag/'+selectedBag.id,
+						type: 'DELETE',
+						success: function (){
+						   console.log("item deleted from bag");
+						   for (var i=0; i<Bag.length; i++){ 
+									if (selectedBag.id==Bag[i].id){
+										Bag.splice(i, 1);     
+										break;
+									 }
+						    }
+						}
+					});
+				   }
+				  });
+				 }
+		     })*/
+				
+			
+		});
+		
+  	    $("#head").click(function() {
+				   if (Player.head=="" && selectedBag.equip=="head"){
+					  $("#head").html('<img id="image" src="'+selectedBag.pathimage+'" alt="image" style=" width: 92%;  height: 92%;" > '); // copio immagine da bag preso dalla GET
+					  $("#"+selectedBagOnPad).find("#image").remove(); // rimuovi immagine dalla lista a video
+					  $("#"+selectedBagOnPad).css("background-color","transparent");
+					  $("#head").css("background-color","transparent");
+					 
+					  ResteModalofPlayerAfterEquip();
+					  //ResteModalofPlayer();
+					  Player.head=selectedBag;  //inserisco in layer arma in lefthand
+					  
+					  $.ajax({
+						  url: 'http://localhost:3000/main/player',
+						  type: 'POST',
+						  contentType:"application/json; charset=utf-8",
+						  dataType:"json",
+						  data:JSON.stringify({player:Player}),
+						 //  data:{player:Player},
+						   success: function (){
+							   console.log("player set");
+							   $.ajax({
+								url: 'http://localhost:3000/main/Bag/'+selectedBag.id,
+								type: 'DELETE',
+								success: function (){
+								   console.log("item deleted from bag");
+								   for (var i=0; i<Bag.length; i++){ 
+									if (selectedBag.id==Bag[i].id){
+										Bag.splice(i, 1);     
+										break;
+									 }
+								   }
+								}
+							  });
+						   }
+					 });
+					}  
+    	})
+		
+		
+	    if (tx==true) var start=setInterval('rd()', 250);	
+	  
+	    document.onkeydown = function(e) {
+	        switch (e.keyCode) {
+			case 79: GiveInput("open"); break;
+			case 103: GiveInput("rleft"); break;
+			case 105: GiveInput("rright");  break;
+			case 37: GiveInput("left");  break;
+			case 38: GiveInput("up");  break;
+			case 39: GiveInput("right"); break;
+			case 40: GiveInput("down"); break;
+	        }
+	    };
+	  
+        function GiveInput(keyAction){
+	     if (keyAction!="") {
+	      switch (keyAction) {
+	        case "open":
+			$.ajax({
+			   url: 'http://localhost:3000/main',
+			   type: 'POST',
+			   data:{key:keyAction, x: 1},
+			   success: function (data){
+				   console.log("open door");
+				   
+				   map=data;
+				}
+			});
+     	    break;
+			case "rleft":
+			$.ajax({
+			   url: 'http://localhost:3000/main',
+			   type: 'POST',
+			   data:{key:keyAction, x: 1},
+			   success: function (data){
+				   console.log("rotate left");
+				   map=data;
+				}
+			});
+     	    break;
+			case "rright":
+			$.ajax({
+			   url: 'http://localhost:3000/main',
+			   type: 'POST',
+			   data:{key:keyAction, x: 1},
+			   success: function (data){
+				   console.log("rotate right");
+				   map=data;
+				}
+			});
+	        break;
+			case "left":
+			$.ajax({
+			   url: 'http://localhost:3000/main',
+			   type: 'POST',
+			   data:{key:keyAction, x: 1},
+			   success: function (data){
+			 	 console.log("left");
+				 map=data;
+			   }
+			});
+			break;
+			case "up":
+			$.ajax({
+			   url: 'http://localhost:3000/main',
+			   type: 'POST',
+			   data:{key:keyAction, x: 1},
+			   success: function (data){
+			 	 console.log("up");
+				 map=data;
+			   }
+			});
+			break;
+			case "down":
+			$.ajax({
+			   url: 'http://localhost:3000/main',
+			   type: 'POST',
+			   data:{key:keyAction, x: 1},
+			   success: function (data){
+			 	 console.log("down");
+				 map=data;
+			   }
+			});
+			break;
+			case "right":
+			$.ajax({
+			   url: 'http://localhost:3000/main',
+			   type: 'POST',
+			   data:{key:keyAction, x: 1},
+			   success: function (data){
+			 	 console.log("right");
+				 map=data;
+			   }
+			});
+			break;
+	      }
+		   
+		  $.ajax({
+			url: 'http://localhost:3000/main/player',
+			type: 'GET',
+			success: function (dataP){
+		  	  Player=dataP;
+			  $("#direzione").text(dataP.direction);
+			  
+			  if (dataP.direction=='e') {
+			      camera.rotation.y=0;
+			      camera.position = new BABYLON.Vector3(dataP.pY, 1, dataP.pX-0.85);
+				  $("#direzione").append('<img src="'+textureCompassE+'" alt="image">');
+			  }
+			  if (dataP.direction=='n') {
+			      camera.rotation.y=-Math.PI/2;
+				  camera.position = new BABYLON.Vector3(dataP.pY+0.85, 1, dataP.pX);
+				  $("#direzione").append('<img src="'+textureCompassN+'" alt="image">');
+			  }
+			  if (dataP.direction=='w') {
+			     camera.rotation.y=Math.PI;
+				 camera.position = new BABYLON.Vector3(dataP.pY, 1, dataP.pX+0.85);
+				 $("#direzione").append('<img src="'+textureCompassW+'" alt="image">'); 
+			  }
+			  if (dataP.direction=='s') {
+			      camera.rotation.y=Math.PI/2;
+				  camera.position = new BABYLON.Vector3(dataP.pY-0.85, 1, dataP.pX);
+				  $("#direzione").append('<img src="'+textureCompassS+'" alt="image">');
+			  }			
+			}
+		  });
+		
+		 }
+	    }
+	
+		var allDoors=new Array();
+		var allCreatures=new Array();
+		/*var allItems=new Array();*/
+		if (carica==true){
+			  $.get("http://localhost:3000/main", function(data, status){
+				  console.log("load"+ status);
+				  map=data;
+				  mapWorld=map;
+				  var disppar=false;
+				  for (var j=0; j<17; j++){
+				  
+				   for (var i=0; i<13; i++){
+				       if (mapWorld [i][j]==1) {
+							box = BABYLON.MeshBuilder.CreateBox("box", {size:1.0}, scene);
+							box.material = mat;
+							box.position.y  =  1;
+							box.position.x  =  i;
+							box.position.z  =  j;
+							
+							var rn=Math.floor(Math.random() * 9);
+							if (rn<4) box.rotation.y=-Math.PI/2;
+							else if (rn>3 && rn<7) box.rotation.y=-Math.PI;
+							else if (rn>6 ) box.rotation.y=Math.PI/2;
+				        } 
+						box = BABYLON.MeshBuilder.CreateBox("box", {size:1.0}, scene);	
+						box.material = mat;
+						box.position.y  =  2;
+						box.position.x  =  i;
+						box.position.z  =  j;
+					}
+				  }
+				  	
+				 }).fail(function() {
+					alert( "Network Error" );
+			    });
+				
+			    $.ajax({
+					url: 'http://localhost:3000/main/doors',
+					type: 'GET',
+					success: function (dataD){
+						for (var i=0; i<dataD.length; i++){
+					    //mapWorld[dataD.pY][mapWorld]='D?); 
+						
+						var columns = 6;  // 2 columns
+						var rows = 1;  // 1 row
+						var mat2 = new BABYLON.StandardMaterial("door"+(i+1), scene);
+						 mat2.diffuseTexture = new BABYLON.Texture(textureDoor, scene);
+						 var faceUV = new Array(6);
+
+						//set all faces to same
+						for (var j = 0; j < 6; j++) {
+							faceUV[j] = new BABYLON.Vector4(j / columns, 0, (j + 1) / columns, 1 / rows);
+						}
+
+						var options = {
+							faceUV: faceUV,
+							size:1.0
+						};
+						
+						door = BABYLON.MeshBuilder.CreateBox("door"+(i+1), options, scene);
+						door.scaling = new BABYLON.Vector3(1, 1, 0.1);
+						door.isPickable=true;
+						door.material = mat2;
+						door.position.y  =  dataD[i].pU;
+						door.position.x  =  dataD[i].pY;
+						door.position.z  =  dataD[i].pX;
+						if (dataD[i].direction=='o') door.rotation.y=Math.PI/2;
+						door.actionManager = new BABYLON.ActionManager(scene);
+						door.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickUpTrigger, function () {
+							$.ajax({
+							   url: 'http://localhost:3000/main',
+							   type: 'POST',
+							   data:{key:'open' },
+							   success: function (data){
+								   console.log("open door");
+								   map=data;
+								}
+							});
+						}));
+						allDoors.push(door);
+					  }
+					}
+			      });
+				  
+				  $.ajax({
+					url: 'http://localhost:3000/main/items',
+					type: 'GET',
+					success: function (dataI){
+					    var spriteManagerSword = new BABYLON.SpriteManager("ItemManagerSword", textureSword, 1, 150, scene);
+						var spriteManagerDagger = new BABYLON.SpriteManager("ItemManagerDagger", textureDagger, 1, 150, scene);
+						var spriteManagerHelmet = new BABYLON.SpriteManager("ItemManagerHelmet", textureDagger, 1, 150, scene); //PROVVISORIO
+						spriteManagerSword.isPickable = true;
+						spriteManagerDagger.isPickable = true;
+						spriteManagerHelmet.isPickable = true;
+						for (var i=0; i<dataI.length; i++){
+							var nameSwap=dataI[i].name;
+							var smanager="spriteManager"+nameSwap
+							var nameI;
+							switch (nameSwap) {
+								case 'Sword':	
+								nameI = new BABYLON.Sprite((nameSwap+dataI[i].id), spriteManagerSword);
+								break
+								case 'Dagger':	
+								nameI = new BABYLON.Sprite((nameSwap+dataI[i].id), spriteManagerDagger);
+								break
+								case 'Helmet':	
+								nameI = new BABYLON.Sprite((nameSwap+dataI[i].id), spriteManagerHelmet);
+								break
+							}
+							nameI.isPickable=true;
+					        nameI.size=0.5;
+							nameI.position.x=dataI[i].pY;
+							nameI.position.y=0.2;
+							nameI.position.z=dataI[i].pX;
+							nameI.actionManager = new BABYLON.ActionManager(scene);
+						
+							var dataToSend;
+							scene.onPointerDown = function (evt) {
+								var pickResult = scene.pickSprite(this.pointerX, this.pointerY);
+								if (pickResult.hit) {
+								     var y=pickResult.pickedSprite.position.z;
+									 var x=pickResult.pickedSprite.position.x;
+									 var name=scene.pickSprite(this.pointerX, this.pointerY).pickedSprite.name;
+									/*pickResult.pickedSprite.angle += 0.5;*/
+									var len=allItems.length;
+									 var trov=false;
+									for (var j=0; j<len; j++){
+									        if (name==(allItems[j].name+allItems[j].id)){
+											   dataToSend=allItems[j];
+											   for (var n=0; n<scene.spriteManagers.length;n++){
+											      
+											      for (var m=0; m<scene.spriteManagers[n].sprites.length;m++){
+												       if (scene.spriteManagers[n].sprites[m].name== name) {
+													        scene.spriteManagers[n].sprites[m].dispose()
+															var ind=allItems.map(function(e) { return (e.name+e.id); }).indexOf(name);
+															var indOfItem=allItems[ind].id;
+															allItems.splice(ind, 1);
+															trov=true;
+															$.ajax({
+															   url: 'http://localhost:3000/main/'+indOfItem,
+															   type: 'DELETE',
+															  
+															   success: function (){
+																   
+																   console.log("item deleted from world");
+																   $.ajax({
+																	   url: 'http://localhost:3000/main/bag',
+																	   type: 'POST',
+																	   contentType:"application/json; charset=utf-8",
+																	   dataType:"json",
+																	   data:JSON.stringify({bag: dataToSend}),
+																	   success: function (data){
+																		   console.log("item insert");
+																		}
+																	});
+																}
+															});
+															break;
+													   }
+												  }
+												  if (trov==true) break;
+											   }
+											}
+											if (trov==true) break;
+									}
+									
+									
+								}
+							};
+							
+							allItems.push(dataI[i]);
+					   }
+					}
+			      });
+				  
+				  $.ajax({
+					url: 'http://localhost:3000/main/creatures',
+					type: 'GET',
+					success: function (dataC){
+						var spriteManagerZombie = new BABYLON.SpriteManager("CreatureManagerZombie", textureCreatureZombie, 2, 600, scene);
+						var spriteManagerCobold = new BABYLON.SpriteManager("CreatureManagerCobold", textureCreatureOrk, 2, 600, scene);
+						var spriteManagerCube = new BABYLON.SpriteManager("CreatureManagerCube", textureCreatureCube, 1, 800, scene);
+						for (var i=0;i<dataC.length;i++){
+						    var nameSwap=dataC[i].name;
+							var smanager="spriteManager"+nameSwap;
+							var nameC;
+							switch (nameSwap) {
+								case 'Zombie':	
+								nameC = new BABYLON.Sprite(nameSwap+i, spriteManagerZombie);
+								if ($("#direzione").text()=='n'){
+								  if (dataC[i].direction=='n') nameC.playAnimation(0, 3, true, 300);
+								  if (dataC[i].direction=='s') nameC.playAnimation(0, 3, true, 300);
+								  if (dataC[i].direction=='e') nameC.playAnimation(4, 7, true, 300);
+								  if (dataC[i].direction=='w') nameC.playAnimation(8, 11, true, 300);
+								  
+								}
+								if ($("#direzione").text()=='s'){
+								  if (dataC[i].direction=='n') nameC.playAnimation(0, 3, true, 300);
+								  if (dataC[i].direction=='s') nameC.playAnimation(0, 3, true, 300);
+								  if (dataC[i].direction=='w') nameC.playAnimation(4, 7, true, 300);
+								  if (dataC[i].direction=='e') nameC.playAnimation(8, 11, true, 300);
+								  
+								}
+								if ($("#direzione").text()=='e'){
+								  if (dataC[i].direction=='e') nameC.playAnimation(0, 3, true, 300);
+								  if (dataC[i].direction=='w') nameC.playAnimation(0, 3, true, 300);
+								  
+								  if (dataC[i].direction=='s') nameC.playAnimation(4, 7, true, 300);
+								  if (dataC[i].direction=='n') nameC.playAnimation(8, 11, true, 300);
+								  
+								}
+								if ($("#direzione").text()=='w'){
+								  if (dataC[i].direction=='e') nameC.playAnimation(0, 3, true, 300);
+								  if (dataC[i].direction=='w') nameC.playAnimation(0, 3, true, 300);
+								  if (dataC[i].direction=='n') nameC.playAnimation(4, 7, true, 300);
+								  if (dataC[i].direction=='s') nameC.playAnimation(8, 11, true, 300)
+								  
+								}
+								if (dataC[i].direction=='') nameC.playAnimation(0, 3, true, 300);
+								break
+							    case 'Cobold':	
+								nameC = new BABYLON.Sprite(nameSwap+i, spriteManagerCobold);
+								nameC.playAnimation(0, 3, true, 250);
+								break
+								case 'Blob':	
+								nameC = new BABYLON.Sprite(nameSwap+i, spriteManagerCube);
+								break							
+							}
+							nameC.size=1;
+							nameC.position.x=dataC[i].pY;
+							nameC.position.y=0;
+							nameC.position.z=dataC[i].pX;
+							allCreatures.push(nameC);
+						}
+						
+					}
+			      });
+			      $.ajax({
+					url: 'http://localhost:3000/main/player',
+					type: 'GET',
+					success: function (dataP){
+					   Player=dataP;
+					   $("#direzione").text(dataP.direction);
+					   if (dataP.direction=='e') {
+						  camera.rotation.y=0;
+						  camera.position = new BABYLON.Vector3(dataP.pY, 1, dataP.pX-0.85);
+						  $("#direzione").html('<img src="'+textureCompassE+'" alt="image">');
+					   }
+					   if (dataP.direction=='n') {
+						  camera.rotation.y=-Math.PI/2;
+						  camera.position = new BABYLON.Vector3(dataP.pY+0.85, 1, dataP.pX);
+						  $("#direzione").html('<img src="'+textureCompassN+'" alt="image">');
+					   }
+					   if (dataP.direction=='w') {
+						 camera.rotation.y=Math.PI;
+						 camera.position = new BABYLON.Vector3(dataP.pY, 1, dataP.pX+0.85);
+						 $("#direzione").html('<img src="'+textureCompassW+'" alt="image">'); 
+					   }
+					   if (dataP.direction=='s') {
+						  camera.rotation.y=Math.PI/2;
+						  camera.position = new BABYLON.Vector3(dataP.pY-0.85, 1, dataP.pX);
+						  $("#direzione").html('<img src="'+textureCompassS+'" alt="image">');
+					   }			
+					}
+				  });
+				carica=false;
+			}
+			
+			UpdateDoors();
+		    
+			function UpdateDoors(){
+		       $.ajax({
+					url: 'http://localhost:3000/main/doors',
+					type: 'GET',
+					success: function (dataD){
+						for (var i=0; i<dataD.length; i++){
+						scene.getMeshByID('door'+(i+1))._position.y=dataD[i].pU;
+					  }
+					}
+			      }).then(function() {           
+					setTimeout(UpdateDoors, 200);  
+				  });
+		     }	
+			 
+			 UpdateCreatures();
+			
+			 function UpdateCreatures(){
+		       $.ajax({
+					url: 'http://localhost:3000/main/creatures',
+					type: 'GET',
+					success: function (dataC){
+						for (var i=0; i<dataC.length; i++){
+						   var nManagersTot=scene.spriteManagers.length; //var nameC="creature"+(i+1);
+						   for (var nManagers=0; nManagers<nManagersTot;nManagers++){ 
+								var lng=scene.spriteManagers[nManagers].sprites.length;
+								for (j=0;j<lng;j++){
+								   if ((dataC[i].name+i)==scene.spriteManagers[nManagers].sprites[j].name ) { 
+								   
+								    if (dataC[i].attack==true) {
+									
+									     if (scene.spriteManagers[nManagers].sprites[j]._fromIndex!=16)  scene.spriteManagers[nManagers].sprites[j].playAnimation(16, 18, true, 500);
+								    }
+									else {
+								    if ($("#direzione").text()=='n'){
+									  if (dataC[i].direction=='n') 
+									       if (scene.spriteManagers[nManagers].sprites[j]._fromIndex!=12) scene.spriteManagers[nManagers].sprites[j].playAnimation(12, 15, true, 300);
+									  if (dataC[i].direction=='s') 
+									       if (scene.spriteManagers[nManagers].sprites[j]._fromIndex!=0) scene.spriteManagers[nManagers].sprites[j].playAnimation(0, 3, true, 300);
+									  if (dataC[i].direction=='e') 
+									       if (scene.spriteManagers[nManagers].sprites[j]._fromIndex!=4) scene.spriteManagers[nManagers].sprites[j].playAnimation(4, 7, true, 300);
+									  if (dataC[i].direction=='w') 
+									       if (scene.spriteManagers[nManagers].sprites[j]._fromIndex!=8) scene.spriteManagers[nManagers].sprites[j].playAnimation(8, 11, true, 300);
+									}
+									if ($("#direzione").text()=='s'){
+									  if (dataC[i].direction=='n') 
+											 if (scene.spriteManagers[nManagers].sprites[j]._fromIndex!=0) scene.spriteManagers[nManagers].sprites[j].playAnimation(0, 3, true, 300);
+									  if (dataC[i].direction=='s') 
+											if (scene.spriteManagers[nManagers].sprites[j]._fromIndex!=12) scene.spriteManagers[nManagers].sprites[j].playAnimation(12, 15, true, 300);
+									  if (dataC[i].direction=='w') 
+											if (scene.spriteManagers[nManagers].sprites[j]._fromIndex!=4) scene.spriteManagers[nManagers].sprites[j].playAnimation(4, 7, true, 300);
+									  if (dataC[i].direction=='e') 
+											if (scene.spriteManagers[nManagers].sprites[j]._fromIndex!=8) scene.spriteManagers[nManagers].sprites[j].playAnimation(8, 11, true, 300);
+									  
+									}
+									if ($("#direzione").text()=='e'){
+									  if (dataC[i].direction=='e') 
+										  if (scene.spriteManagers[nManagers].sprites[j]._fromIndex!=12) scene.spriteManagers[nManagers].sprites[j].playAnimation(12, 15, true, 300);
+									  if (dataC[i].direction=='w') 
+										  if (scene.spriteManagers[nManagers].sprites[j]._fromIndex!=0) scene.spriteManagers[nManagers].sprites[j].playAnimation(0, 3, true, 300);
+									  
+									  if (dataC[i].direction=='s') 
+										  if (scene.spriteManagers[nManagers].sprites[j]._fromIndex!=4) scene.spriteManagers[nManagers].sprites[j].playAnimation(4, 7, true, 300);
+									  if (dataC[i].direction=='n') 
+										  if (scene.spriteManagers[nManagers].sprites[j]._fromIndex!=8) scene.spriteManagers[nManagers].sprites[j].playAnimation(8, 11, true, 300);
+									  
+									}
+									if ($("#direzione").text()=='w'){
+									  if (dataC[i].direction=='e') 
+											 if (scene.spriteManagers[nManagers].sprites[j]._fromIndex!=0) scene.spriteManagers[nManagers].sprites[j].playAnimation(0, 3, true, 300);
+									  if (dataC[i].direction=='w') 
+											 if (scene.spriteManagers[nManagers].sprites[j]._fromIndex!=12) scene.spriteManagers[nManagers].sprites[j].playAnimation(12, 15, true, 300);
+									  if (dataC[i].direction=='n') 
+											 if (scene.spriteManagers[nManagers].sprites[j]._fromIndex!=4) scene.spriteManagers[nManagers].sprites[j].playAnimation(4, 7, true, 300);
+									  if (dataC[i].direction=='s') 
+											 if (scene.spriteManagers[nManagers].sprites[j]._fromIndex!=8) scene.spriteManagers[nManagers].sprites[j].playAnimation(8, 11, true, 300)
+									  
+									}
+								  }
+								  scene.spriteManagers[nManagers].sprites[j].position.x=dataC[i].pY;
+								  scene.spriteManagers[nManagers].sprites[j].position.y=0.9;
+									 
+									 
+							 	  scene.spriteManagers[nManagers].sprites[j].position.z=dataC[i].pX;
+								}
+								  
+							   }
+							}
+						    
+	
+					  }
+					}
+			      }).then(function() {           
+					setTimeout(UpdateCreatures, 200);  
+				  });
+		     }	
+            return scene;
+        };
+        /******* End of the create scene function ******/
+
+        var scene = createScene(); //Call the createScene function
+
+        // Register a render loop to repeatedly render the scene
+		
+		
+        engine.runRenderLoop(function () {
+                scene.render();
+        });
+        
+        // Watch for browser/canvas resize events
+        window.addEventListener("resize", function () {
+                engine.resize();
+        });
+	//}
+	
+	//////////////////////////////////////////////////////////
+	
+//	var start;
+	
+	 $(document).ready(function(){
+	 
+		
+	});
+	
+	</script>
+	
+
+</html>
